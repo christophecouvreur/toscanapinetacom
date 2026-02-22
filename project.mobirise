@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Toscanapineta.com",
-    "currentPage": "page13.html",
+    "currentPage": "page3.html",
     "ai": {
       "prompt": "Crée un site minimaliste pour louer notre ferme en Toscane à un public privé.\n•\tHomepage : Photos du lieu + bouton 'Accès privé' (mot de passe) + formulaire pour demander le code d'accès.\n•\tEspace Accès privé : chaque page comprend du texte et des images\n- Page: Présentation de la ferme et appartements (prix/jour + calendrier de réservation → envoi email à toscana_fc@gmail.com)\n- Pages : Projet (texte/images), \n- Page : Galerie de photos des appartements\n- Page:  Localisation (carte), \n- Page: Règles de vie, À propos (photos + texte), \n- Page: Témoignages.\nStyle : Épuré, couleurs naturelles, navigation intuitive\n",
       "imageSearchQuery": "Tuscan landscape, farmhouse, apartment interior, olive grove, vineyard"
@@ -266,7 +266,7 @@
         "css": "'Golos Text', sans-serif"
       }
     ],
-    "uniqCompNum": 123,
+    "uniqCompNum": 126,
     "imageResize": false,
     "favicon": false,
     "mbrsiteDomain": "toscanapinetacom",
@@ -2000,46 +2000,273 @@
         {
           "alias": false,
           "_styles": {
-            "& when not (@fullScreen)": {
-              "padding-top": "(@paddingTop * 1rem)",
-              "padding-bottom": "(@paddingBottom * 1rem)"
-            },
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
             "& when (@bg-type = \"color\")": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = \"image\")": {
-              "background-image": "url(@bg-value)",
-              ".mbr-overlay": {
-                "background-color": "@overlayColor",
-                "opacity": "@overlayOpacity"
+              "background-color": "@bg-value",
+              "& when (@gradientBg)": {
+                "background-image": "linear-gradient(@gradientColor 50%, @bg-value)"
               }
             },
-            ".mbr-section-title": {
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".title-wrapper": {
+              "margin-bottom": "50px",
+              "@media (max-width: 992px)": {
+                "margin-bottom": "30px"
+              },
+              ".label-wrapper": {
+                ".mbr-label": {
+                  "display": "inline-block",
+                  "padding": "4px 20px",
+                  "margin-bottom": "20px",
+                  "border": "1px solid @label"
+                }
+              },
+              ".mbr-section-title": {
+                "margin-bottom": "0"
+              }
+            },
+            ".embla__slide": {
+              "display": "flex",
+              "justify-content": "center",
+              "position": "relative",
+              "min-width": "408px",
+              "max-width": "408px",
+              "@media (max-width: 767px)": {
+                "min-width": "100%",
+                "max-width": "100%"
+              },
+              ".slide-content": {
+                "width": "100%",
+                ".item-wrapper": {
+                  "position": "relative",
+                  "height": "100%",
+                  "overflow": "hidden",
+                  "padding": "10px",
+                  "background-color": "@cardBg",
+                  "will-change": "transform",
+                  "animation": "none !important",
+                  "&:hover, &:focus": {
+                    ".image-wrap": {
+                      ".icon-card .mbr-iconfont": {
+                        "background-color": "@icon",
+                        "color": "@iconActive"
+                      },
+                      ".item-img": {
+                        "img": {
+                          "transform": "scale(1.2) translateX(30px)",
+                          "@media (max-width: 992px)": {
+                            "transform": "scale(1.2) translateX(15px)"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  ".image-wrap": {
+                    "position": "relative",
+                    ".icon-card": {
+                      "position": "absolute",
+                      "right": "40px",
+                      "bottom": "-35px",
+                      "width": "70px",
+                      "height": "70px",
+                      "padding": "10px",
+                      "background-color": "@cardBg",
+                      "border-radius": "100%",
+                      "z-index": "2",
+                      ".mbr-iconfont": {
+                        "position": "relative",
+                        "display": "inline-flex",
+                        "align-items": "center",
+                        "justify-content": "center",
+                        "width": "50px",
+                        "height": "50px",
+                        "min-width": "50px",
+                        "font-size": "18px",
+                        "background-color": "@iconBg_1",
+                        "color": "@icon",
+                        "border-radius": "100%",
+                        "transition": "all .3s ease",
+                        "z-index": "5"
+                      },
+                      "&::before": {
+                        "content": "''",
+                        "position": "absolute",
+                        "bottom": "35px",
+                        "left": "-12px",
+                        "width": "15px",
+                        "height": "15px",
+                        "background-color": "transparent",
+                        "border-bottom-right-radius": "30px",
+                        "box-shadow": "10px 10px 0 10px @cardBg"
+                      },
+                      "&::after": {
+                        "content": "''",
+                        "position": "absolute",
+                        "bottom": "35px",
+                        "right": "-12px",
+                        "width": "15px",
+                        "height": "15px",
+                        "background-color": "transparent",
+                        "border-bottom-left-radius": "30px",
+                        "box-shadow": "-10px 10px 0 10px @cardBg"
+                      }
+                    },
+                    ".item-img": {
+                      "overflow": "hidden",
+                      "margin-bottom": "40px",
+                      "img": {
+                        "height": "300px",
+                        "width": "100%",
+                        "transition": "all .5s ease",
+                        "object-fit": "cover",
+                        "transform": "scale(1.2)"
+                      }
+                    }
+                  },
+                  ".item-content": {
+                    "position": "relative",
+                    "z-index": "1",
+                    "padding": "0 30px 30px",
+                    "@media (max-width: 992px)": {
+                      "padding": "0 20px 20px"
+                    },
+                    ".card-title": {
+                      "margin-bottom": "20px",
+                      "& when (@showBorder)": {
+                        "padding-bottom": "20px",
+                        "border-bottom": "1px solid @border"
+                      }
+                    },
+                    ".card-text": {
+                      "margin-bottom": "0"
+                    },
+                    ".mbr-section-btn": {
+                      "margin-top": "20px",
+                      ".btn": {
+                        "margin-bottom": "0"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            ".embla__button--next, .embla__button--prev": {
+              "display": "flex"
+            },
+            ".embla__button": {
+              "top": "0",
+              "width": "60px",
+              "height": "60px",
+              "font-size": "18px",
+              "background-color": "@arrowsBg !important",
+              "color": "@arrowsColor !important",
+              "border": "none !important",
+              "border-radius": "50%",
+              "transition": "all 0.3s",
+              "position": "absolute",
+              "display": "flex",
+              "justify-content": "center",
+              "align-items": "center",
+              "opacity": "1 !important",
+              "& when not (@arrows)": {
+                "display": "none"
+              },
+              "& when not (@arrowsMobile)": {
+                "@media (max-width: 768px)": {
+                  "display": "none"
+                }
+              },
+              "& when (@showTitle)": {
+                "top": "-7rem",
+                "@media (max-width: 992px)": {
+                  "top": "0"
+                }
+              },
+              "&:hover": {
+                "background-color": "@activeBg !important",
+                "color": "@activeColor !important"
+              },
+              "&.embla__button--prev": {
+                "right": "70px",
+                "@media (max-width: 992px)": {
+                  "right": "auto",
+                  "left": "0"
+                }
+              },
+              "&.embla__button--next": {
+                "right": "0"
+              }
+            },
+            ".embla": {
+              "position": "relative",
+              "width": "100%",
+              "& when (@arrows)": {
+                "padding-top": "6rem"
+              },
+              "& when (@showTitle)": {
+                "padding-top": "0 !important",
+                "@media (max-width: 992px)": {
+                  "padding-top": "6rem !important"
+                }
+              }
+            },
+            ".embla__viewport": {
+              "overflow": "hidden",
+              "width": "100%",
+              "margin-right": "1rem"
+            },
+            ".embla__viewport.is-draggable": {
+              "cursor": "grab"
+            },
+            ".embla__viewport.is-dragging": {
+              "cursor": "grabbing"
+            },
+            ".embla__container": {
+              "display": "flex",
+              "user-select": "none",
+              "-webkit-touch-callout": "none",
+              "-khtml-user-select": "none",
+              "-webkit-tap-highlight-color": "transparent"
+            },
+            ".item-menu-overlay": {
+              "opacity": "0 !important"
+            },
+            ".mbr-label, .label-wrapper": {
+              "color": "#ffffff"
+            },
+            ".mbr-section-title, .title-wrapper": {
+              "color": "#ffffff"
+            },
+            ".card-title": {
               "color": "#000000"
             },
-            "ul": {
-              "li": {
-                "color": "#000000",
-                "margin-bottom": "0.5rem"
-              }
-            },
-            ".mbr-text": {
-              "color": "#000000",
-              "text-align": "center"
-            },
-            ".image-wrapper": {
-              "img": {
-                "border-radius": "0.25rem"
-              }
+            ".card-text": {
+              "color": "#8a8a8a"
             }
           },
-          "_name": "ai-component",
-          "_anchor": "header01-2o",
-          "_sourceTheme": "plantm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" group=\"Features\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background': bg.parallax}\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\">\n    <mbr-parameters>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Background</header>\n            <fieldset type=\"background\" name=\"bg\" parallax>\n                <input type=\"image\" title=\"Image\" value>\n                <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n                <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n            </fieldset>\n            <header condition=\"bg.type === 'video'\">Fallback Image</header>\n            <input type=\"image\" title=\"Fallback Image\" value name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n            <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n            <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n            <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters> <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity bg-color></div>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-lg-6\">\n        <h2 mbr-theme-style=\"display-2\" class=\"mbr-section-title mbr-fonts-style mb-4 text-center\" data-app-selector=\".mbr-section-title\">Our Tuscan Landscape</h2>\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <ul class=\"list-unstyled\">\n                    <li>* Located in Northern Maremma  </li>\n                    <li> * A perfectly central position in Tuscany  </li>\n                    <li>* Your Tuscan Adventure on the Etruscan Coast  </li>\n                    <li>* A coastline waiting to be explored, where nature, history, outdoor activities, and exceptional wines and olive oils come together. </li>\n                </ul>\n            </div>\n            <div class=\"col-md-6\">\n                <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\"><b>Unspoiled beaches with archaeological remains,</b><br><b> just 5 minutes away by car.</b><br><b><br>Medieval villages</b> such as Campiglia Marittima, Suvereto, and Bolgheri within a 20‑minute drive<br><br><b>Cultural cities</b> like Florence, Pisa, Siena, and Lucca reachable in 1h30 to 2h drive, and Rome in about 3 hours drive<br><br><b>Elba Island</b>, only 30 minutes by ferry from Piombino, along with the other islands of the <b>Tuscan Archipelago</b><br></p>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/archipel-toscan.webp\" alt=\"Landscape Image 1\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/gulf-necropolis-baratti.webp\" alt=\"Landscape Image 2\">\n        </div>\n    </div>\n\n    <div class=\"col-lg-3\">\n        <div class=\"image-wrapper\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/r246r-progetto-populonia.bianca-trionfi-davide.meneghini.hd.022.webp\" alt=\"Portrait Image\">\n        </div>\n        <div class=\"image-wrapper mt-3\">\n            <img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/images.webp\" alt=\"Landscape Image 3\">\n        </div>\n    </div>\n        </div>\n    </div>\n</section>",
-          "_cid": "v80qLxPcU4",
-          "_PHPplaceholders": [],
-          "_JSplaceholders": [],
+          "_name": "slider05",
+          "_sourceTheme": "shapem5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"slider05 mbr-embla shapem5\" group=\"Sliders &amp; Galleries\" plugins=\"embla\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Label\" name=\"showLabel\">\n        <input type=\"color\" title=\"Border Color\" value=\"#e4ed64\" name=\"label\" condition=\"showLabel\" selected=\"\">\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked=\"\">\n        <header>Carousel</header>\n        <input type=\"checkbox\" title=\"Autoplay\" name=\"autoplay\">\n        <input type=\"range\" title=\"Interval\" name=\"interval\" min=\"1\" max=\"10\" value=\"4\" step=\"1\" condition=\"autoplay\">\n        <input type=\"checkbox\" title=\"Loop\" name=\"loop\" checked=\"\">\n        <input type=\"checkbox\" title=\"Draggable\" name=\"draggable\" checked=\"\">\n        <input type=\"checkbox\" name=\"arrows\" title=\"Arrows\" checked=\"\">\n        <input type=\"checkbox\" name=\"arrowsMobile\" title=\"Mobile Arrows\" condition=\"arrows\" checked=\"\">\n        <input type=\"color\" title=\"Arrows Color\" value=\"#000000\" name=\"arrowsColor\" condition=\"arrows\" selected=\"\">\n        <input type=\"color\" title=\"Arrows BG\" value=\"#ffffff\" name=\"arrowsBg\" condition=\"arrows\" selected=\"\">\n        <input type=\"color\" title=\"Active Color\" value=\"#000000\" name=\"activeColor\" condition=\"arrows\" selected=\"\">\n        <input type=\"color\" title=\"Active BG\" value=\"#e4ed64\" name=\"activeBg\" condition=\"arrows\" selected=\"\">\n        <header>Cards</header>\n        <input type=\"range\" name=\"gap\" title=\"Gap\" min=\"0\" max=\"30\" step=\"5\" value=\"15\">\n        <input type=\"checkbox\" title=\"Card Title\" name=\"showCardTitle\" checked=\"\">\n        <input type=\"checkbox\" title=\"Card Border\" name=\"showBorder\" condition=\"showCardTitle\" checked=\"\">\n        <input type=\"color\" title=\"Border Color\" value=\"#e0e0e0\" name=\"border\" condition=\"showBorder &amp;&amp; showCardTitle\" selected=\"\">\n        <input type=\"checkbox\" title=\"Card Text\" name=\"showText\" checked=\"\">\n        <input type=\"checkbox\" title=\"Card Buttons\" name=\"showCardButtons\">\n        <input type=\"color\" title=\"Card BG\" value=\"#ffffff\" name=\"cardBg\" selected=\"\">\n        <header>Icon</header>\n        <input type=\"checkbox\" title=\"Icon\" name=\"showIcon\">\n        <input type=\"color\" title=\"Icon Color\" value=\"#000000\" name=\"icon\" condition=\"showIcon\" selected=\"\">\n        <input type=\"color\" title=\"Icon Active Color\" value=\"#ffffff\" name=\"iconActive\" condition=\"showIcon\" selected=\"\">\n        <input type=\"color\" title=\"Icon Bg\" value=\"#e4ed64\" name=\"iconBg_1\" condition=\"showIcon\" selected=\"\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\" required=\"\">\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/shapem5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#000000\" selected=\"\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Gradient Background\" name=\"gradientBg\" condition=\"bg.type=='color'\">\n        <input type=\"color\" title=\"Gradient Color\" name=\"gradientColor\" value=\"#f6f3ec\" condition=\"gradientBg &amp;&amp; bg.type=='color'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked=\"\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay &amp;&amp; bg.type == 'image'\">\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay &amp;&amp; bg.type !== 'color'\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-lg-6\">\n                <div class=\"title-wrapper\" mbr-if=\"showLabel || showTitle\">\n                    <div class=\"label-wrapper\">\n                        <p class=\"mbr-label mbr-fonts-style\" data-app-selector=\".mbr-label, .label-wrapper\" mbr-theme-style=\"display-4\" mbr-if=\"showLabel\">\n                            <b>Prime Living</b>\n                        </p>\n                    </div>\n                    <h3 class=\"mbr-section-title mbr-fonts-style\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\"><b>Our Tuscan Landscape</b></h3>\n                </div>\n            </div>\n            <div class=\"col-12\">\n                <div class=\"embla\" data-loop=\"{{loop}}\" data-auto-play=\"{{autoplay}}\" data-auto-play-interval=\"{{interval}}\" data-draggable=\"{{draggable}}\" data-skip-snaps=\"true\" data-align=\"center\" data-contain-scroll=\"trimSnaps\">\n                    <div class=\"embla__viewport\">\n                        <div class=\"embla__container\">\n                            <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                <div class=\"slide-content\">\n                                    <div class=\"item-wrapper\">\n                                        <div class=\"image-wrap\">\n                                            <div class=\"icon-wrapper icon-card\" mbr-if=\"showIcon\">\n                                                <a href=\"#\"><span mbr-icon=\"\" class=\"mobi-mbri mobi-mbri-right mbr-iconfont\"></span></a>\n                                            </div>\n                                            <div class=\"item-img small-radius\">\n                                                <img src=\"@PROJECT_PATH@/assets/images/ile-dlebe.webp\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                        <div class=\"item-content\">\n                                            <h4 class=\"card-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .item-btn\">\n                                                Elba Island</h4>\n                                            <p class=\"card-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".card-text\">Only 30 minutes by ferry from Piombino, along with the other islands of the Tuscan Archipelago\n                                            </p>\n                                            <div mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"mbr-section-btn item-btn\" mbr-if=\"showCardButtons\" data-toolbar=\"-mbrBtnMove\">\n                                                <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                                                    <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                                    Learn More\n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                <div class=\"slide-content\">\n                                    <div class=\"item-wrapper\">\n                                        <div class=\"image-wrap\">\n                                            <div class=\"icon-wrapper icon-card\" mbr-if=\"showIcon\">\n                                                <a href=\"#\"><span mbr-icon=\"\" class=\"mobi-mbri mobi-mbri-right mbr-iconfont\"></span></a>\n                                            </div>\n                                            <div class=\"item-img small-radius\">\n                                                <img src=\"@PROJECT_PATH@/assets/images/archipel-toscan-1.webp\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                        <div class=\"item-content\">\n                                            <h4 class=\"card-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .item-btn\">\n                                                Northern Maremma, Etruscan Coast</h4>\n                                            <p class=\"card-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".card-text\">A perfectly central position in Tuscany.&nbsp;<br>A coastline waiting to be explored, where nature, history, outdoor activities, and exceptional wines and olive oils come together.</p>\n                                            <div mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"mbr-section-btn item-btn\" mbr-if=\"showCardButtons\" data-toolbar=\"-mbrBtnMove\">\n                                                <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                                                    <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                                    Learn More\n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                <div class=\"slide-content\">\n                                    <div class=\"item-wrapper\">\n                                        <div class=\"image-wrap\">\n                                            <div class=\"icon-wrapper icon-card\" mbr-if=\"showIcon\">\n                                                <a href=\"#\"><span mbr-icon=\"\" class=\"mobi-mbri mobi-mbri-right mbr-iconfont\"></span></a>\n                                            </div>\n                                            <div class=\"item-img small-radius\">\n                                                <img src=\"@PROJECT_PATH@/assets/images/entremermontagne.webp\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                        <div class=\"item-content\">\n                                            <h4 class=\"card-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .item-btn\">\n                                                Unspoiled beaches</h4>\n                                            <p class=\"card-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".card-text\">With archaeological remains,\n<br>just 5 minutes away by car.</p>\n                                            <div mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"mbr-section-btn item-btn\" mbr-if=\"showCardButtons\" data-toolbar=\"-mbrBtnMove\">\n                                                <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                                                    <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                                    Learn More\n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                <div class=\"slide-content\">\n                                    <div class=\"item-wrapper\">\n                                        <div class=\"image-wrap\">\n                                            <div class=\"icon-wrapper icon-card\" mbr-if=\"showIcon\">\n                                                <a href=\"#\"><span mbr-icon=\"\" class=\"mobi-mbri mobi-mbri-right mbr-iconfont\"></span></a>\n                                            </div>\n                                            <div class=\"item-img small-radius\">\n                                                <img src=\"@PROJECT_PATH@/assets/images/tlchargement-1.webp\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                        <div class=\"item-content\">\n                                            <h4 class=\"card-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .item-btn\">\n                                                Medieval Villages</h4>\n                                            <p class=\"card-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".card-text\">Such as Campiglia Marittima, Suvereto, and Bolgheri within a 20‑minute drive\n                                            </p>\n                                            <div mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"mbr-section-btn item-btn\" mbr-if=\"showCardButtons\" data-toolbar=\"-mbrBtnMove\">\n                                                <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                                                    <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                                    Learn More\n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"embla__slide slider-image item\" mbr-style=\"{'margin-left': gap + 'px', 'margin-right': gap + 'px'}\">\n                                <div class=\"slide-content\">\n                                    <div class=\"item-wrapper\">\n                                        <div class=\"image-wrap\">\n                                            <div class=\"icon-wrapper icon-card\" mbr-if=\"showIcon\">\n                                                <a href=\"#\"><span mbr-icon=\"\" class=\"mobi-mbri mobi-mbri-right mbr-iconfont\"></span></a>\n                                            </div>\n                                            <div class=\"item-img small-radius\">\n                                                <img src=\"@PROJECT_PATH@/assets/images/pnglucques.webp\" alt=\"Mobirise Website Builder\">\n                                            </div>\n                                        </div>\n                                        <div class=\"item-content\">\n                                            <h4 class=\"card-title mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showCardTitle\" data-app-selector=\".card-title, .item-btn\">\n                                                Cultural cities</h4>\n                                            <p class=\"card-text mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".card-text\">Florence, Pisa, Siena, and Lucca reachable in 1h30 to 2h drive, and Rome in about 3 hours drive\n                                            </p>\n                                            <div mbr-buttons=\"\" mbr-theme-style=\"display-4\" class=\"mbr-section-btn item-btn\" mbr-if=\"showCardButtons\" data-toolbar=\"-mbrBtnMove\">\n                                                <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                                                    <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                                    Learn More\n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <button class=\"embla__button embla__button--prev\">\n                        <span class=\"mobi-mbri mobi-mbri-left mbr-iconfont\" aria-hidden=\"true\"></span>\n                        <span class=\"sr-only visually-hidden visually-hidden visually-hidden visually-hidden\">Previous</span>\n                    </button>\n                    <button class=\"embla__button embla__button--next\">\n                        <span class=\"mobi-mbri mobi-mbri-right mbr-iconfont\" aria-hidden=\"true\"></span>\n                        <span class=\"sr-only visually-hidden visually-hidden visually-hidden visually-hidden\">Next</span>\n                    </button>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "vbYpnTyGTx",
+          "_anchor": "slider05-3h",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
