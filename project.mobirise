@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Toscanapineta.com",
-    "currentPage": "page6.html",
+    "currentPage": "page10.html",
     "ai": {
       "prompt": "Crée un site minimaliste pour louer notre ferme en Toscane à un public privé.\n•\tHomepage : Photos du lieu + bouton 'Accès privé' (mot de passe) + formulaire pour demander le code d'accès.\n•\tEspace Accès privé : chaque page comprend du texte et des images\n- Page: Présentation de la ferme et appartements (prix/jour + calendrier de réservation → envoi email à toscana_fc@gmail.com)\n- Pages : Projet (texte/images), \n- Page : Galerie de photos des appartements\n- Page:  Localisation (carte), \n- Page: Règles de vie, À propos (photos + texte), \n- Page: Témoignages.\nStyle : Épuré, couleurs naturelles, navigation intuitive\n",
       "imageSearchQuery": "Tuscan landscape, farmhouse, apartment interior, olive grove, vineyard"
@@ -266,7 +266,7 @@
         "css": "'Golos Text', sans-serif"
       }
     ],
-    "uniqCompNum": 131,
+    "uniqCompNum": 132,
     "imageResize": false,
     "favicon": false,
     "mbrsiteDomain": "toscanapinetacom",
@@ -2956,11 +2956,11 @@
           "_sourceTheme": "fantasym5",
           "_customHTML": "<section data-bs-version=\"5.1\" class=\"gallery01 fantasym5\" group=\"Gallery & Slider\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"5\">\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n        <header>Cards</header>\n        <select title=\"Amount\" name=\"cardAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\" selected>4</option>\n            <option value=\"5\">5</option>\n        </select>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/fantasym5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/fantasym5/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-lg-11\">\n                <div class=\"content-wrapper\">\n                    <div class=\"row content-wrap\" mbr-if=\"showTitle || showButtons\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\n                        <div class=\"col-12 col-lg-6 card\">\n                            <div class=\"title-wrapper\">\n                                <h2 class=\"mbr-section-title mbr-fonts-style\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\"><b>🌿 And A Shared Cosy Space with our guests</b><br><b> (When We’re Home)</b></h2>\n                            </div>\n                        </div>\n                        <div class=\"col-12 col-lg-6 card\">\n                            <div class=\"mbr-section-btn main-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a href=\"https://mobiri.se\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\">\n                                    LEARN MORE\n                                </a></div>\n                        </div>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-12\">\n                            <div class=\"items-wrapper\">\n                                <div class=\"items-wrap\">\n                                    <div class=\"image-wrap image-wrap_2  card-wrap\">\n                                        <img src=\"@PROJECT_PATH@/assets/images/20260306-194649.webp\" alt=\"Mobirise Website Builder\">\n                                    </div>\n                                    <div class=\"image-wrap card-wrap\" mbr-if=\"cardAmount > 1\">\n                                        <img src=\"@PROJECT_PATH@/assets/images/20260306-193643.webp\" alt=\"Mobirise Website Builder\">\n                                    </div>\n                                    <div class=\"image-wrap image-wrap_2 image-wrap_3 card-wrap\" mbr-if=\"cardAmount > 2\">\n                                        <img src=\"@PROJECT_PATH@/assets/images/20260306-194845.webp\" alt=\"Mobirise Website Builder\">\n                                    </div>\n                                    <div class=\"image-wrap card-wrap\" mbr-if=\"cardAmount > 3\">\n                                        <img src=\"@PROJECT_PATH@/assets/images/20260306-191911.webp\" alt=\"Mobirise Website Builder\">\n                                    </div>\n                                    <div class=\"image-wrap image-wrap_2 card-wrap\" mbr-if=\"cardAmount > 4\">\n                                        <img src=\"@PROJECT_PATH@/assets/images/20260306-191911.webp\" alt=\"Mobirise Website Builder\">\n                                    </div>\n                                </div>\n<!--                                <div class=\"image-wrapper card-wrap\" mbr-if=\"cardAmount > 4\">-->\n<!--                                    <img src=\"@PROJECT_PATH@/assets/images/image2.webp\" alt=\"Mobirise Website Builder\"/>-->\n<!--                                </div>-->\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "veuEhQzLQo",
+          "_anchor": "gallery01-3m",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "gallery01-3m"
+          "_params": {}
         }
       ]
     },
@@ -3631,6 +3631,101 @@
             "<script src=\"//widget.simplybook.it/v2/widget/widget.js\" type=\"text/javascript\"></script>",
             "<script type=\"text/javascript\">\n    var widget = new SimplybookWidget({\"widget_type\":\"iframe\",\"url\":\"https:\\/\\/toscanapineta.simplybook.it\",\"theme\":\"space\",\"theme_settings\":{\"timeline_hide_unavailable\":\"1\",\"sb_base_color\":\"#49306b\",\"hide_past_days\":\"0\",\"timeline_show_end_time\":\"0\",\"timeline_modern_display\":\"as_slots\",\"display_item_mode\":\"block\",\"body_bg_color\":\"#ffffff\",\"sb_review_image\":\"\",\"dark_font_color\":\"#474747\",\"light_font_color\":\"#ffffff\",\"btn_color_1\":\"#c98e5a\",\"sb_company_label_color\":\"#ffffff\",\"hide_img_mode\":\"0\",\"show_sidebar\":\"1\",\"sb_busy\":\"#c7b3b3\",\"sb_available\":\"#d6ebff\"},\"timeline\":\"modern\",\"datepicker\":\"top_calendar\",\"is_rtl\":false,\"app_config\":{\"clear_session\":0,\"allow_switch_to_ada\":0,\"predefined\":[]}});\n</script>"
           ]
+        },
+        {
+          "_name": "footer2",
+          "_sourceTheme": "powerm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"powerm5 footer2\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"3\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"3\">\n    <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n    <header>Show/Hide</header>\n    <input type=\"range\" inline title=\"Menu Items\" name=\"menuItems\" min=\"0\" max=\"10\" step=\"1\" value=\"3\" condition=\"showLinks\">\n    <input type=\"checkbox\" title=\"Copyright\" name=\"showCopy\" checked>\n    <input type=\"checkbox\" title=\"Links\" name=\"showLinks\">\n    <input type=\"checkbox\" title=\"Line\" name=\"showLine\" checked>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/powerm5/components/_images/video/video1.jpg\" parallax>\n      <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/powerm5/components/_images/video/video1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n  </div>\n\n  <div class=\"container-fluid\">\n    <div class=\"row\" mbr-class=\"{'flex-row-reverse' : reverseContent}\">\n      <div class=\"col-12\">\n        <div class=\"line\" mbr-if=\"showLine\">\n        </div>\n      </div>\n      <div class=\"col-12 col-md-6 col-lg center\">\n        <p class=\"mbr-fonts-style copyright\" mbr-theme-style=\"display-4\" data-app-selector=\".copyright\" mbr-if=\"showCopy\">✉️<b> If your preferred dates appear unavailable</b><br><br>If the dates you’re hoping for don’t show as available, feel free to contact us directly at <i>toscanapineta@gmail.com</i>. <br><br>We’ll be pleased to see whether we can make a special arrangement for you.</p>\n      </div>\n      <div class=\"col-12 col-md-6 col-lg-6 center\" mbr-if=\"menuItems > 0 &amp;&amp; showLinks\">\n        <div class=\"row-links\">\n          <ul class=\"row-links-soc\" mbr-list mbr-list-grow=\"menuItems\">\n            <li mbr-text class=\"row-links-soc-item mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\"row-links-soc-item\"><a href=\"#\" class=\"text-black\">Privacy Policy</a></li>\n\n\n\n            <li mbr-text class=\"row-links-soc-item mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\"row-links-soc-item\"><a href=\"#\" class=\"text-black\">Terms of Service</a></li>\n            <li mbr-text class=\"row-links-soc-item mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\"row-links-soc-item\"><a href=\"#\" class=\"text-black\">Cookies Settings</a></li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = \"video\")": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".line": {
+              "width": "100%",
+              "height": "2px",
+              "background": "#efefef",
+              "margin-bottom": "2rem"
+            },
+            "a": {
+              "position": "relative",
+              "width": "fit-content",
+              "&:before": {
+                "content": "''",
+                "position": "absolute",
+                "width": "100%",
+                "transition": "all 0.3s",
+                "height": "1px",
+                "background": "currentColor",
+                "left": "0",
+                "bottom": "0"
+              },
+              "&:hover": {
+                "&:before": {
+                  "width": "0"
+                }
+              }
+            },
+            ".copyright": {
+              "color": "#232323"
+            },
+            ".center": {
+              "display": "flex",
+              "flex-direction": "column",
+              "justify-content": "center"
+            },
+            ".row-links": {
+              "width": "100%",
+              "justify-content": "flex-end",
+              ".row-links-soc": {
+                "list-style": "none",
+                "display": "flex",
+                "justify-content": "flex-end",
+                "flex-wrap": "wrap",
+                "padding": "0",
+                "margin-bottom": "0",
+                "li": {
+                  "padding": "0 1rem 1rem 1rem",
+                  "p": {
+                    "margin": "0"
+                  }
+                },
+                "@media (max-width: 992px)": {
+                  "justify-content": "center"
+                }
+              }
+            },
+            "p": {
+              "@media (max-width: 992px)": {
+                "text-align": "center"
+              }
+            }
+          },
+          "_cid": "vevRhi5lO4",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {},
+          "_anchor": "footer2-3n"
         },
         {
           "_name": "tabs01",
